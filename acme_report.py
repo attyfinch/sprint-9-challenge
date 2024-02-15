@@ -28,8 +28,32 @@ def generate_products(num_products=30):
 
     return products
 
+
+'''
+Number of unique product names in the product list
+Average (mean) price
+Average (mean) weight
+Average (mean) flammability
+
+'''
+
+def inventory_report(product_list):
+    prod_count = 0
+    total_price = 0
+    total_weight = 0
+    total_flammability = 0
+
+    for prod in product_list:
+        prod_count += 1
+        total_price += prod.price
+        total_weight = prod.weight
+        total_flammability = prod.flammability
+    
+    return (prod_count, total_price/prod_count, total_weight/prod_count, total_flammability/prod_count)
+
+
 if __name__ == '__main__':
-    print(generate_products())
+    print(inventory_report(generate_products()))
 
 
 
