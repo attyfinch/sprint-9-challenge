@@ -28,18 +28,6 @@ class Product:
         else:
             return "...BABOOM!!"
 
-
-'''
-Make a child class called BoxingGlove that inherits from Product named BoxingGlove and does the following:
-
-Change the default weight to 10 (but leave other defaults unchanged)
-Override the explode method to always return "...it's a glove."
-Add a punch method that returns:
-"That tickles." if the weight is below 5
-"Hey that hurt!" if the weight is greater or equal to 5 but less than 15
-"OUCH!" otherwise
-'''
-
 class BoxingGlove(Product):
     def __init__(self, name, price=10, weight=10, flammability=0.5, identifier=random.randint(1000000, 9999999)):
         super().__init__(name, price, weight, flammability, identifier)
@@ -54,7 +42,6 @@ class BoxingGlove(Product):
             return "Hey that hurt!"
         else:
             return "OUCH!"
-
 
 if __name__ == '__main__':
     # prod_one = Product('soap')

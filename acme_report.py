@@ -1,25 +1,15 @@
 import random
 import acme
 
-'''
-name should consist of a random adjective from the list: ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved'] followed by a space and then a random noun from the list: ['Anvil', 'Catapult' 'Disguise' 'Mousetrap', '???'], e.g. 'Awesome Anvil' and 'Portable Catapult' are both potential names that could be generated
+ADJECTIVES = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
+NOUNS = ['Anvil', 'Catapult' 'Disguise' 'Mousetrap', '???']
 
-price and weight should both be random integers from 5 to 100 (inclusive)
-
-flammability should be a float ranging from 0.0 to 2.5 (inclusive)
-'''
-
-adj = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
-noun = ['Anvil', 'Catapult' 'Disguise' 'Mousetrap', '???']
-
-
-# should randomly generate a given number of products (default 30), and return them as a list
 def generate_products(num_products=30):
     products = []
 
     for i in range(0, num_products):
         new_product = acme.Product(
-            name=f'{random.choice(adj)} {random.choice(noun)}', 
+            name=f'{random.choice(ADJECTIVES)} {random.choice(NOUNS)}', 
             price=random.randint(5, 100),
             weight=random.randint(5, 100),
             flammability=random.uniform(0.0, 2.5))
@@ -27,15 +17,6 @@ def generate_products(num_products=30):
         products.append(new_product)        
 
     return products
-
-
-'''
-Number of unique product names in the product list
-Average (mean) price
-Average (mean) weight
-Average (mean) flammability
-
-'''
 
 def inventory_report(product_list):
     prod_count = 0
@@ -51,7 +32,7 @@ def inventory_report(product_list):
     
     return (prod_count, total_price/prod_count, total_weight/prod_count, total_flammability/prod_count)
 
-
+# QA
 if __name__ == '__main__':
     print(inventory_report(generate_products()))
 
